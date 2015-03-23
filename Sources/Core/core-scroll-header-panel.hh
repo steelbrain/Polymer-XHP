@@ -9,7 +9,7 @@ class :core-scroll-header-panel extends :polymer-xhp{
     bool keepCondensedHeader,
     int headerHeight,
     int condensedHeaderHeight,
-    bool condensedHeaderHeight;
+    bool scrollAwayTopbar;
   children (pcdata | %flow)*;
   category %flow;
 }
