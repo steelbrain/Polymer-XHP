@@ -1,6 +1,6 @@
 <?hh //strict
 class :core-transition-css extends :core-transition{
-  children (:style);
+  children (:style)*;
   attribute
     Stringish baseClass,
     Stringish openedClass,

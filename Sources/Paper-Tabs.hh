@@ -8,6 +8,6 @@ class :paper-tabs extends :core-selector{
     bool disableDrag,
     bool hideScrollButton,
     bool alignBottom;
-  children (:paper-tab);
+  children (:paper-tab)*;
   protected string $tagName = 'paper-tabs';
 }
