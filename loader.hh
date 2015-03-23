@@ -1,42 +1,21 @@
 <?hh //strict
-require(__DIR__.'/Sources/Paper-Button-Base.hh');
-require(__DIR__.'/Sources/Paper-Button.hh');
-require(__DIR__.'/Sources/Paper-Radio-Button.hh');
-require(__DIR__.'/Sources/Paper-Checkbox.hh');
-require(__DIR__.'/Sources/Core-Overlay.hh');
-require(__DIR__.'/Sources/Paper-Dialog-Base.hh');
-require(__DIR__.'/Sources/Paper-Dialog.hh');
-require(__DIR__.'/Sources/Property.hh');
-require(__DIR__.'/Sources/Core-Meta.hh');
-require(__DIR__.'/Sources/Core-Transition.hh');
-require(__DIR__.'/Sources/Core-Transition-CSS.hh');
-require(__DIR__.'/Sources/Paper-Dropdown-Transition.hh');
-require(__DIR__.'/Sources/Core-Dropdown.hh');
-require(__DIR__.'/Sources/Paper-Dropdown.hh');
-require(__DIR__.'/Sources/Core-Dropdown-Base.hh');
-require(__DIR__.'/Sources/Paper-Dropdown-Menu.hh');
-require(__DIR__.'/Sources/Paper-Fab.hh');
-require(__DIR__.'/Sources/Paper-Icon-Button.hh');
-require(__DIR__.'/Sources/Paper-AutoGrow-Textarea.hh');
-require(__DIR__.'/Sources/Paper-Char-Counter.hh');
-require(__DIR__.'/Sources/Paper-Input-Decorator.hh');
-require(__DIR__.'/Sources/Paper-Input.hh');
-require(__DIR__.'/Sources/Paper-Item.hh');
-require(__DIR__.'/Sources/Paper-Menu-Button.hh');
-require(__DIR__.'/Sources/Paper-Progress.hh');
-require(__DIR__.'/Sources/Core-Selector.hh');
-require(__DIR__.'/Sources/Paper-Radio-Button.hh');
-require(__DIR__.'/Sources/Paper-Radio-Group.hh');
-require(__DIR__.'/Sources/Paper-Ripple.hh');
-require(__DIR__.'/Sources/Paper-Shadow.hh');
-require(__DIR__.'/Sources/Core-Range.hh');
-require(__DIR__.'/Sources/Paper-Slider.hh');
-require(__DIR__.'/Sources/Paper-Spinner.hh');
-require(__DIR__.'/Sources/Paper-Tabs.hh');
-require(__DIR__.'/Sources/Paper-Tab.hh');
-require(__DIR__.'/Sources/Paper-Toast.hh');
-require(__DIR__.'/Sources/Paper-Toggle-Button.hh');
-require(__DIR__.'/Sources/Core-Menu.hh');
-require(__DIR__.'/Sources/Core-Toolbar.hh');
-require(__DIR__.'/Sources/P-Body.hh');
-require(__DIR__.'/Sources/Core-Image.hh');
+spl_autoload_register(function($Name){
+  if(strlen($Name) > 3 && substr($Name, 0, 3) !== 'xhp'){
+    return ;
+  } else if($Name === 'xhp_polymer_xhp'){
+    require_once(__DIR__.'/Sources/Paper/polymer-xhp.hh');
+    return ;
+  }
+  $Chunks = explode('_', $Name);
+  if($Chunks[1] === 'core'){
+    $Path = __DIR__.'/Sources/Core/core-'.$Chunks[2].'.hh';
+  } else if($Chunks[1] === 'paper'){
+    $Path = __DIR__.'/Sources/Paper/paper-'.$Chunks[2].'.hh';
+  } else {
+    return false;
+  }
+  if(file_exists($Path)){
+    require_once($Path);
+  }
+  file_put_contents("/tmp/test", $Path."\n", FILE_APPEND);
+});
