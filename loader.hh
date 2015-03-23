@@ -1,10 +1,10 @@
-<?hh //strict
+<?hh
 spl_autoload_register(function($Name){
   if(strlen($Name) > 3 && substr($Name, 0, 3) !== 'xhp'){
-    return ;
+    return false;
   } else if($Name === 'xhp_polymer_xhp'){
     require_once(__DIR__.'/Sources/Paper/polymer-xhp.hh');
-    return ;
+    return false;
   }
   $Chunks = explode('_', $Name);
   if($Chunks[1] === 'core'){
