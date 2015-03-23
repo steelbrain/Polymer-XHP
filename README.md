@@ -29,10 +29,6 @@ echo
  - Core-Selector
  - Core-Transition[-CSS]
 
-#### TODO:
- - Create an autoloader (easy)
- - Support all of Core elements (time consuming but easy)
-
 #### License
 This project is licensed under the terms of MIT License.
 
