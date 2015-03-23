@@ -36,3 +36,4 @@ require(__DIR__.'/Sources/Paper-Tabs.hh');
 require(__DIR__.'/Sources/Paper-Tab.hh');
 require(__DIR__.'/Sources/Paper-Toast.hh');
 require(__DIR__.'/Sources/Paper-Toggle-Button.hh');
+require(__DIR__.'/Sources/Core-Menu.hh');
