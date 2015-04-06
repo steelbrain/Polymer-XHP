@@ -17,5 +17,4 @@ spl_autoload_register(function($Name){
   if(file_exists($Path)){
     require_once($Path);
   }
-  file_put_contents("/tmp/test", $Path."\n", FILE_APPEND);
 });
