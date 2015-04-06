@@ -1,6 +1,6 @@
 <?hh //strict
 class :paper-input extends :polymer-xhp{
-  protected string $tagName = 'paper-inputs';
+  protected string $tagName = 'paper-input';
   attribute
     Stringish label,
     bool floatingLabel,
